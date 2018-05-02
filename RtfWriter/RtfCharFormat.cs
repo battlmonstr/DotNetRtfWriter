@@ -246,10 +246,10 @@ namespace Elistia.DotNetRtfWriter
                 result.Append(@"\cf" + _fgColor.Value);
             }
             if (_bgColor != null) {
-                result.Append(@"\chshdng0\chcbpat" + _bgColor.Value + @"\cb" + _bgColor.Value);
+                result.AppendFormat(@"\highlight{0}", _bgColor.Value);
             }
-            
-            foreach(var fontStyle in _fontStyleMap)
+
+            foreach (var fontStyle in _fontStyleMap)
             {
                 if (FontStyle.containsStyleAdd(fontStyle.Key)) {
                     result.Append(@"\" + fontStyle.Value);
